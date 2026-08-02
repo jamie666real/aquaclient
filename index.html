@@ -11,10 +11,24 @@
 		<meta property="og:title" content="AquaClient v1.0.0 by jamie666">
 		<meta property="og:description" content="AquaClient themed launcher">
 		<style>
-			:root{--aqua-1:#00b4d8;--aqua-2:#0077b6;--aqua-3:#90e0ef;--aqua-contrast:#e6ffff}
+			:root{--aqua-1:#00b4d8;--aqua-2:#0077b6;--aqua-3:#90e0ef;--aqua-contrast:#e6ffff;--aqua-panel:rgba(2,17,31,0.82);--aqua-line:rgba(255,255,255,0.18)}
 			html,body{width:100%;height:100%;margin:0;background:linear-gradient(180deg,var(--aqua-2),#001f3f);color:var(--aqua-contrast);font-family:Arial,Helvetica,sans-serif}
-			body#game_frame{background:linear-gradient(135deg,#0077b6,#00b4d8);}
-			/* small non-intrusive banner for the launcher page */
+			body#game_frame{position:relative;margin:0;width:100%;height:100%;overflow:hidden;background:linear-gradient(135deg,#001c2e 0%,#004d6d 45%,#00a8cb 100%);}
+			body#game_frame canvas{position:relative;z-index:1}
+			.aquatic-shell{position:fixed;inset:0;display:flex;justify-content:flex-end;align-items:flex-start;padding:24px;z-index:20;pointer-events:none}
+			.credits-card{width:min(380px,100%);padding:22px;border-radius:24px;border:1px solid var(--aqua-line);background:var(--aqua-panel);backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,0.35);overflow:hidden;position:relative;pointer-events:auto}
+			.credits-card::before{content:"";position:absolute;inset:-40px 0 auto 0;height:120px;background:radial-gradient(circle at top,rgba(112,236,255,0.28),transparent 72%);pointer-events:none}
+			.credits-badge{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,0.1);color:#9fefff;font-size:12px;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:12px}
+			.credits-card h1{margin:0 0 6px;font-size:28px;line-height:1.1}
+			.subtext{margin:0 0 16px;color:#b8f6ff;font-size:14px;line-height:1.5}
+			.profile-card{display:flex;align-items:center;gap:14px;padding:12px;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
+			.avatar-preview{width:88px;height:88px;border-radius:20px;object-fit:cover;border:2px solid rgba(255,255,255,0.2);background:#07243a;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08)}
+			.profile-meta h2{margin:0 0 4px;font-size:20px}
+			.profile-meta p{margin:0 0 10px;color:#bceeff;font-size:14px}
+			.upload-button{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,#00a8cb,#0077b6);color:white;font-size:13px;font-weight:700;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
+			.upload-button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,0.2)}
+			#skin-upload{display:none}
+			.footer-note{margin:14px 0 0;color:#c8f6ff;font-size:13px;line-height:1.4}
 			#aqua-banner{position:fixed;left:16px;bottom:16px;padding:6px 10px;background:rgba(255,255,255,0.04);color:var(--aqua-contrast);border-radius:6px;font-size:13px;z-index:9999}
 		</style>
 		<link type="image/png" rel="shortcut icon" href="favicon.png">
@@ -44,5 +58,39 @@
 		</script>
 	</head>
 	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame">
+		<div class="aquatic-shell">
+			<div class="credits-card">
+				<div class="credits-badge">AquaClient</div>
+				<h1>Ported by Jamie666</h1>
+				<p class="subtext">This launcher now carries an ocean-themed profile card with your Minecraft skin preview.</p>
+				<div class="profile-card">
+					<img class="avatar-preview" id="avatar-preview" src="assets/skin-placeholder.svg" alt="Minecraft skin avatar">
+					<div class="profile-meta">
+						<h2>jamie666</h2>
+						<p>Ported by Jamie666</p>
+						<label class="upload-button" for="skin-upload">Upload skin</label>
+						<input id="skin-upload" type="file" accept="image/*">
+					</div>
+				</div>
+				<p class="footer-note">Upload a skin and it will appear right beneath your username.</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.addEventListener("DOMContentLoaded", function() {
+				var uploadInput = document.getElementById("skin-upload");
+				var avatarPreview = document.getElementById("avatar-preview");
+				if(uploadInput && avatarPreview) {
+					uploadInput.addEventListener("change", function(event) {
+						var file = event.target.files && event.target.files[0];
+						if(!file) return;
+						var reader = new FileReader();
+						reader.onload = function(e) {
+							avatarPreview.src = e.target.result;
+						};
+						reader.readAsDataURL(file);
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
