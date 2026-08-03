@@ -22,7 +22,9 @@
 		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript">
 			"use strict";
-			window.addEventListener("load", function() {
+			function startClient() {
+				if(window.__aquaClientLaunched) return;
+				window.__aquaClientLaunched = true;
 				if(window.location.href.indexOf("file:") === 0) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
 					return;
@@ -40,9 +42,13 @@
 						{ addr: "wss://mc.cosmixmc.org", name: "CosmixMC" }
     					]
 				};
-				window.__aquaClientLaunched = true;
 				main();
-			});
+			}
+			if(document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", startClient, { once: true });
+			} else {
+				startClient();
+			}
 		</script>
 	</head>
 	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame">
