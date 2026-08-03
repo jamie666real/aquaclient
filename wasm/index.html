@@ -18,6 +18,10 @@
 			body#game_frame{position:relative;margin:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(circle at 20% 20%,rgba(125,239,255,0.22),transparent 30%),radial-gradient(circle at 80% 10%,rgba(0,255,255,0.16),transparent 24%),linear-gradient(135deg,#001c2e 0%,#004d6d 45%,#00a8cb 100%)}
 			body#game_frame::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.10),transparent 40%,rgba(0,0,0,0.18));pointer-events:none;z-index:0}
 			body#game_frame canvas{position:relative;z-index:1}
+			body#game_frame #launch_countdown_screen{background:transparent;color:var(--aqua-contrast)}
+			body#game_frame #launch_countdown_screen h1,body#game_frame #launch_countdown_screen h2{color:var(--aqua-contrast);text-shadow:0 0 12px rgba(95,232,255,0.24)}
+			body#game_frame #launch_countdown_screen button{background:linear-gradient(135deg,#2ec4ff,#0c7ccf);color:white;border:0;border-radius:999px;padding:10px 14px;cursor:pointer}
+			body#game_frame #launch_countdown_screen progress,body#game_frame #launch_countdown_screen div[style*="border:2px solid black"]{border-color:rgba(255,255,255,0.24)!important;background:rgba(255,255,255,0.08)!important}
 		</style>
 		<script type="text/javascript" src="bootstrap.js"></script>
 		<script type="text/javascript">
