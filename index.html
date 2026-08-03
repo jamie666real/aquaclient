@@ -16,22 +16,21 @@
 			body#game_frame{position:relative;margin:0;width:100%;height:100%;overflow:hidden;background:linear-gradient(135deg,#001c2e 0%,#004d6d 45%,#00a8cb 100%);}
 			body#game_frame canvas{position:relative;z-index:1}
 			.aquatic-shell{position:fixed;inset:0;display:flex;justify-content:flex-end;align-items:flex-start;padding:24px;z-index:20;pointer-events:none}
-			.credits-card{width:min(380px,100%);padding:22px;border-radius:24px;border:1px solid var(--aqua-line);background:var(--aqua-panel);backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,0.35);overflow:hidden;position:relative;pointer-events:auto}
-			.credits-card::before{content:"";position:absolute;inset:-40px 0 auto 0;height:120px;background:radial-gradient(circle at top,rgba(112,236,255,0.28),transparent 72%);pointer-events:none}
-			.credits-badge{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,0.1);color:#9fefff;font-size:12px;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:12px}
-			.credits-card h1{margin:0 0 6px;font-size:28px;line-height:1.1}
-			.subtext{margin:0 0 16px;color:#b8f6ff;font-size:14px;line-height:1.5}
-			.profile-card{display:flex;align-items:center;gap:14px;padding:12px;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
-			.avatar-preview{width:88px;height:88px;border-radius:20px;object-fit:cover;border:2px solid rgba(255,255,255,0.2);background:#07243a;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08)}
+			.credits-card{width:min(400px,100%);padding:24px 24px 22px;border-radius:24px;border:1px solid var(--aqua-line);background:linear-gradient(145deg,rgba(3,24,41,0.94),rgba(1,16,30,0.88));backdrop-filter:blur(16px);box-shadow:0 20px 55px rgba(0,0,0,0.34);overflow:hidden;position:relative;pointer-events:auto}
+			.credits-card::before{content:"";position:absolute;inset:-45px 0 auto 0;height:140px;background:radial-gradient(circle at top,rgba(112,236,255,0.24),transparent 72%);pointer-events:none}
+			.credits-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,0.1);color:#9fefff;font-size:12px;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:12px}
+			.credits-badge::before{content:"•";font-size:16px;color:#5fe8ff}
+			.credits-card h1{margin:0 0 8px;font-size:30px;line-height:1.1;font-weight:700}
+			.subtext{margin:0 0 16px;color:#bfefff;font-size:14px;line-height:1.6}
+			.profile-card{display:flex;align-items:center;gap:14px;padding:14px;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
+			.avatar-preview{width:84px;height:84px;border-radius:20px;object-fit:cover;border:2px solid rgba(255,255,255,0.2);background:linear-gradient(135deg,#0e3a4f,#0a2138);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08)}
 			.profile-meta h2{margin:0 0 4px;font-size:20px}
-			.profile-meta p{margin:0 0 10px;color:#bceeff;font-size:14px}
+			.profile-meta p{margin:0 0 8px;color:#bceeff;font-size:14px}
 			.profile-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
-			.upload-button,.launch-button{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,#00a8cb,#0077b6);color:white;font-size:13px;font-weight:700;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;border:0}
-			.upload-button:hover,.launch-button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,0.2)}
-			.launch-button{background:linear-gradient(135deg,#2ec4ff,#0c7ccf)}
+			.launch-button{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;background:linear-gradient(135deg,#2ec4ff,#0c7ccf);color:white;font-size:13px;font-weight:700;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;border:0;box-shadow:0 8px 18px rgba(0,0,0,0.2)}
+			.launch-button:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,0.24)}
 			.launch-button:disabled{opacity:0.7;cursor:wait}
-			#skin-upload{display:none}
-			.footer-note{margin:14px 0 0;color:#c8f6ff;font-size:13px;line-height:1.4}
+			.footer-note{margin:14px 0 0;color:#ccefff;font-size:13px;line-height:1.5}
 			.aqua-bottom-badge{position:fixed;left:18px;bottom:18px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(0,180,216,0.95),rgba(0,119,182,0.95));color:#f2ffff;border:1px solid rgba(255,255,255,0.22);box-shadow:0 10px 24px rgba(0,0,0,0.28);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;z-index:9999;pointer-events:none}
 		</style>
 		<link type="image/png" rel="shortcut icon" href="favicon.png">
@@ -75,40 +74,21 @@
 		<div class="aquatic-shell">
 			<div class="credits-card">
 				<div class="credits-badge">AquaClient</div>
-				<h1>Ported by Jamie666</h1>
-				<p class="subtext">This launcher now carries an ocean-themed profile card with your Minecraft skin preview.</p>
+				<h1>Welcome to AquaClient</h1>
+				<p class="subtext">A polished browser-based launcher for diving into Eaglercraft 1.12.2 with a smooth, ocean-bright first impression.</p>
 				<div class="profile-card">
-					<img class="avatar-preview" id="avatar-preview" src="assets/skin-placeholder.svg" alt="Minecraft skin avatar">
+					<img class="avatar-preview" src="assets/skin-placeholder.svg" alt="AquaClient launcher preview">
 					<div class="profile-meta">
-						<h2>jamie666</h2>
-						<p>Ported by Jamie666</p>
-							<div class="profile-actions">
-								<label class="upload-button" for="skin-upload">Upload skin</label>
-								<button class="launch-button" id="launch-client" type="button">Launch</button>
-							</div>
-						<input id="skin-upload" type="file" accept="image/*">
+						<h2>Jamie666</h2>
+						<p>Launcher owner • Ocean build</p>
+						<div class="profile-actions">
+							<button class="launch-button" id="launch-client" type="button">Launch Client</button>
+						</div>
 					</div>
 				</div>
-				<p class="footer-note">Upload a skin and it will appear right beneath your username.</p>
+				<p class="footer-note">Ready to jump in? Start the client and head straight into the server list.</p>
 			</div>
 		</div>
 		<div class="aqua-bottom-badge">AquaClient v1.0.0</div>
-		<script type="text/javascript">
-			window.addEventListener("DOMContentLoaded", function() {
-				var uploadInput = document.getElementById("skin-upload");
-				var avatarPreview = document.getElementById("avatar-preview");
-				if(uploadInput && avatarPreview) {
-					uploadInput.addEventListener("change", function(event) {
-						var file = event.target.files && event.target.files[0];
-						if(!file) return;
-						var reader = new FileReader();
-						reader.onload = function(e) {
-							avatarPreview.src = e.target.result;
-						};
-						reader.readAsDataURL(file);
-					});
-				}
-			});
-		</script>
 	</body>
 </html>
