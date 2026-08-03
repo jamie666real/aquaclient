@@ -7,20 +7,25 @@
 		<meta name="keywords" content="aquaclient, minecraft, launcher, wasm">
 		<title>AquaClient Launcher</title>
 		<style>
-			html,body{width:100%;height:100%;margin:0;background:linear-gradient(135deg,#06131f 0%,#0a2740 45%,#0f4f6d 100%);color:#f0fbff;font-family:Arial,Helvetica,sans-serif}
-			body{display:flex;align-items:center;justify-content:center;overflow:hidden}
-			.landing-card{width:min(420px,90%);padding:32px;border-radius:24px;background:rgba(3,16,29,0.82);border:1px solid rgba(255,255,255,0.16);box-shadow:0 18px 45px rgba(0,0,0,0.35);text-align:center}
-			.landing-card h1{margin:0 0 10px;font-size:28px}
-			.landing-card p{margin:0 0 22px;color:#bfe7f3;line-height:1.6}
-			.launch-button{padding:12px 20px;border:0;border-radius:999px;background:linear-gradient(135deg,#1ec8ff,#0f73c9);color:white;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.24)}
-			.launch-button:hover{transform:translateY(-1px)}
+			html,body{width:100%;height:100%;margin:0;background:radial-gradient(circle at top, rgba(64,196,255,0.18), transparent 40%), linear-gradient(135deg,#081626 0%,#072b44 35%,#0e4f6e 100%);color:#e8f9ff;font-family:Inter,Arial,Helvetica,sans-serif;overflow:hidden}
+			body{display:flex;align-items:center;justify-content:center;position:relative}
+			body::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%, rgba(31,188,255,0.18), transparent 18%), radial-gradient(circle at 80% 10%, rgba(72,224,255,0.11), transparent 25%), radial-gradient(circle at 50% 80%, rgba(25,137,220,0.12), transparent 20%);pointer-events:none}
+			body::after{content:'';position:absolute;left:-25%;bottom:-15%;width:150%;height:150%;background:url('data:image/svg+xml,%3Csvg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 40 C 30 20 60 60 90 40 C 120 20 150 60 180 40 V120 H0 Z" fill="rgba(255,255,255,0.06)"/%3E%3C/svg%3E') repeat-x;opacity:0.16;animation:wave 18s linear infinite;transform:translate3d(0,0,0)}
+			@keyframes wave{0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
+			.landing-card{position:relative;z-index:1;width:min(460px,92%);padding:36px 32px 38px;border-radius:28px;background:rgba(5,28,46,0.92);border:1px solid rgba(128,216,255,0.14);box-shadow:0 28px 80px rgba(0,0,0,0.35);text-align:center;backdrop-filter:blur(10px)}
+			.landing-card h1{margin:0 0 14px;font-size:34px;letter-spacing:0.04em;text-transform:uppercase;color:#c6eeff}
+			.landing-card p{margin:0 0 28px;color:#c7e7f7;line-height:1.7;font-size:15px}
+			.launch-button{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:0;border-radius:999px;background:linear-gradient(135deg,#3fd7ff,#1c7cc9);color:#fff;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 14px 32px rgba(23,83,128,0.35);transition:transform .18s ease,box-shadow .18s ease}
+			.launch-button:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(23,83,128,0.45)}
+			.launch-button:focus-visible{outline:2px solid rgba(72,211,255,0.75);outline-offset:4px}
+			.launch-button .bubble{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.9);box-shadow:0 0 14px rgba(255,255,255,0.35);}
 		</style>
 	</head>
 	<body>
 		<div class="landing-card">
-			<h1>Launch Eaglercraft</h1>
-			<p>Open the WASM client to start playing.</p>
-			<button class="launch-button" id="launch-btn" type="button">Launch</button>
+			<h1>AquaClient Launcher</h1>
+			<p>Dive into the aquatic-themed Eaglercraft WASM client and launch from the depths.</p>
+			<button class="launch-button" id="launch-btn" type="button"><span class="bubble"></span>Dive In</button>
 		</div>
 		<script type="text/javascript">
 			document.getElementById("launch-btn").addEventListener("click", function() {
