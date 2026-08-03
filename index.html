@@ -29,7 +29,7 @@
 			.upload-button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,0.2)}
 			#skin-upload{display:none}
 			.footer-note{margin:14px 0 0;color:#c8f6ff;font-size:13px;line-height:1.4}
-			#aqua-banner{position:fixed;left:16px;bottom:16px;padding:6px 10px;background:rgba(255,255,255,0.04);color:var(--aqua-contrast);border-radius:6px;font-size:13px;z-index:9999}
+			.aqua-bottom-badge{position:fixed;left:18px;bottom:18px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(0,180,216,0.95),rgba(0,119,182,0.95));color:#f2ffff;border:1px solid rgba(255,255,255,0.22);box-shadow:0 10px 24px rgba(0,0,0,0.28);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;z-index:9999;pointer-events:none}
 		</style>
 		<link type="image/png" rel="shortcut icon" href="favicon.png">
 		<script type="text/javascript" src="classes.js"></script>
@@ -75,6 +75,7 @@
 				<p class="footer-note">Upload a skin and it will appear right beneath your username.</p>
 			</div>
 		</div>
+		<div class="aqua-bottom-badge">AquaClient v1.0.0</div>
 		<script type="text/javascript">
 			window.addEventListener("DOMContentLoaded", function() {
 				var uploadInput = document.getElementById("skin-upload");

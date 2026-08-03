@@ -33,8 +33,8 @@ translation.test.args=%s %s
 translation.test.world=world
 
 menu.game=Game Menu
-menu.singleplayer=Singleplayer
-menu.multiplayer=Multiplayer
+menu.singleplayer=Aqua Singleplayer
+menu.multiplayer=Aqua Multiplayer
 menu.options=Options...
 menu.quit=Quit Game
 menu.returnToMenu=Save and Quit to Title
