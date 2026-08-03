@@ -18,7 +18,6 @@
 			body#game_frame{position:relative;margin:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(circle at 20% 20%,rgba(125,239,255,0.22),transparent 30%),radial-gradient(circle at 80% 10%,rgba(0,255,255,0.16),transparent 24%),linear-gradient(135deg,#001c2e 0%,#004d6d 45%,#00a8cb 100%)}
 			body#game_frame::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.10),transparent 40%,rgba(0,0,0,0.18));pointer-events:none;z-index:0}
 			body#game_frame canvas{position:relative;z-index:1}
-			.aqua-bottom-badge{position:fixed;left:18px;bottom:18px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(0,180,216,0.95),rgba(0,119,182,0.95));color:#f2ffff;border:1px solid rgba(255,255,255,0.22);box-shadow:0 10px 24px rgba(0,0,0,0.28);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;z-index:9999;pointer-events:none}
 		</style>
 		<script type="text/javascript" src="bootstrap.js"></script>
 		<script type="text/javascript">
@@ -64,7 +63,5 @@
 			}
 		</script>
 	</head>
-	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame">
-		<div class="aqua-bottom-badge">AquaClient v1.0.0</div>
-	</body>
+	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame"></body>
 </html>
